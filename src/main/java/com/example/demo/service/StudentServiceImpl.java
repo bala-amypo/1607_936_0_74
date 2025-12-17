@@ -6,7 +6,16 @@ import
 
 @Service
 public class StudentServiceImpl implements StudentService{
-    @Auto
+    @Autowired StudentRepository student;
+    //save()
+    //findAll()
+    //findById()
+    //deleteById()
+    //existById();
+
+    public StudentEntity postData(StudentEntity stu){
+        return student.save(stu);
+    }
 
 
 }
