@@ -20,11 +20,34 @@ public ValidationEntity{
     private String name;
     @Email(message="Email is not valid")
     private String email;
-    @Max(6,message="should be less than 6")
+    @Size(min=2,max=6,message="should be less than 6")
     @NotNull
     private String password;
     @Max(message="age should be less than 35")
     @Positive(message="age could not be negative")
-    private Number age;
+    private int age;
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
