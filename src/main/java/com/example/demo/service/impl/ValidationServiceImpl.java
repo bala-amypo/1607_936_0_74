@@ -16,5 +16,9 @@ public class ValidationServiceImpl implements ValidationService{
         return value.save(val);
 
     }
+    @Override
+public ValidationEntity getData(int id){
+     return value.findById(id);
+}
 
 }
