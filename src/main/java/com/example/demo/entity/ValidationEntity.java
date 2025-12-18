@@ -1,4 +1,5 @@
-package com.example.demo.entity;import jakarta.persistence.Entity;
+package com.example.demo.entity;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +27,6 @@ public ValidationEntity{
     @Positive(message="age could not be negative")
     private int age;
       
-       //Name
     public String getName(){
         return name;
     }
@@ -34,7 +34,6 @@ public ValidationEntity{
         this.name=name;
     }
 
-    //Id -primary key
     public Integer getID(){
         return id;
     }
@@ -42,7 +41,6 @@ public ValidationEntity{
         this.id=id;
     }
 
-    //Email
     public String getEmail(){
         return email;
     }
@@ -50,15 +48,43 @@ public ValidationEntity{
         this.email=email;
     }
 
-    // Password
     public String getPassword(){
         return password;
     }
     public void setPassword(String password){
         this.password=password;
     }
-     
 
+    public int getAge(){
+        return age;
+    }
+    public void setAge(int age){
+        this.age=age;
+    }
+
+    public ValidationEntity(){
+
+
+
+    }
+     
+    public ValidationEntity( private Long id;
+    @NotNull
+    @Size(min=2,max=6,message="require 2 to 6 characters")
+    private String name;
+    @Email(message="Email is not valid")
+    private String email;
+    @Size(min=2,max=6,message="should be less than 6")
+    @NotNull
+    private String password;
+    @Max(message="age should be less than 35")
+    @Positive(message="age could not be negative")
+    private int age;){
+
+
+        
+    }
+     
 
 
 
