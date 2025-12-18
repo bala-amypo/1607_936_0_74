@@ -34,10 +34,10 @@ public ValidationEntity{
         this.name=name;
     }
 
-    public Integer getID(){
+    public Long getID(){
         return id;
     }
-    public void setID(Integer id){
+    public void setID(Long id){
         this.id=id;
     }
 
