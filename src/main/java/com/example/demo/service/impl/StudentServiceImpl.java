@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.entity.StudentEntity;
 import java.util.List;
-import org
+import org.springframework.
 
 
 @Service
@@ -28,7 +28,10 @@ public List<StudentEntity> getallData(){
 
 }
 @Override
-public String DeleteData(@Path)
+public String DeleteData(@PathVariable int id){
+    student.deleteById(id);
+    return "Deleted Successfully";
+}
 
 
 
