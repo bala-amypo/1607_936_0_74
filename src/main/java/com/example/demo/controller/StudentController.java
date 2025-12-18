@@ -17,5 +17,8 @@ public class StudentController{
             return ser.postdata(stu);
     }
     @GetMapping("/get")
+    public List<StudentEntity> getdata(){
+        return ser.getAllData();
+    }
     
 }
