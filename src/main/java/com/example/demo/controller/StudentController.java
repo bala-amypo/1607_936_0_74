@@ -24,7 +24,7 @@ public class StudentController{
     }
     @DeleteMapping("/delete/(id)")
     public String deleteval(@PathVariable int id){
-        return ser.deleteData(id);
+        return ser.DeleteData(id);
     }
     @GetMapping("put/{id}")
     public StudentEntity getdata(@PathVariable int id){
@@ -33,7 +33,7 @@ public class StudentController{
     @PutMapping("/put/{id}")
     public StudentEntity putvalue(@PathVariable int id,@RequestBody StudentEntity entity){
 
-        return ser.updateDate(id,entity);
+        return ser.updateData(id,entity);
     }
 
     
