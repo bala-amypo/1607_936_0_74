@@ -18,4 +18,11 @@ public class StudentServiceImpl implements StudentService{
         return student.save(stu);
     }
 
+
+@Override
+List<StudentEntity> getallData(){
+
+              
+
+}
 }
