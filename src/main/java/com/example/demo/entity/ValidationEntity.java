@@ -26,9 +26,42 @@ public ValidationEntity{
     @Max(message="age should be less than 35")
     @Positive(message="age could not be negative")
     private int age;
+      
+       //Name
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+
+    //Id -primary key
+    public Integer getID(){
+        return id;
+    }
+    public void setID(Integer id){
+        this.id=id;
+    }
+
+    //Email
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String email){
+        this.email=email;
+    }
+
+    // Password
+    public String getPassword(){
+        return password;
+    }
+    public void setPassword(String password){
+        this.password=password;
+    }
+     
+     
 
 
-                    
 
 
 
