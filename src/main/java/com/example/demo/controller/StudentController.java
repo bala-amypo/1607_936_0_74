@@ -18,7 +18,7 @@ public class StudentController{
     }
     @GetMapping("/get")
     public List<StudentEntity> getdata(){
-        return ser.getAllData();
+        return ser.getallData();
     }
     
 }
