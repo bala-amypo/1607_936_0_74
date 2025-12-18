@@ -28,7 +28,7 @@ public class StudentController{
     public StudentEntity getdata(@PthVariable int id){
         return ser.getData(id);
     }           
-
+    @PutMapping("")
 
 
     
