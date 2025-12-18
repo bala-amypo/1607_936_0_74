@@ -4,11 +4,14 @@ import java.util.List;
 public interface StudentService{
 StudentEntity postdata(StudentEntity stu);
 List<StudentEntity> getallData();
-String DeleteData(int );
+String DeleteData(int id);
 
-StudentEntity getData(int id){
+StudentEntity getData(int id);
+StudentEntity updateData(int id,StudentEntity entity){
         
 }
+        
+
 
 
 
