@@ -24,11 +24,11 @@ public class StudentController{
     public String deleteval(@PathVariable  int id){
         return ser.deleteData(id);
     }
-    @PutMapping("put/{id}")
-    public StudentEntity putdata(           
+    @PutMapping("getId/{id}")
+    public StudentEntity getdata()           
 
 
-        
-    )
+
+    
     
 }
