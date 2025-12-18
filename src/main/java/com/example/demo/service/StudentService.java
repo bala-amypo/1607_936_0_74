@@ -7,8 +7,8 @@ List<StudentEntity> getallData();
 String DeleteData(int id);
 
 StudentEntity getData(int id);
-StudentEntity updateData(int id,StudentEntity entity){
-        
+StudentEntity updateData(int id,StudentEntity entity);
+
 }
         
 
