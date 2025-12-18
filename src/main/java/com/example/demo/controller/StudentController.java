@@ -25,6 +25,10 @@ public class StudentController{
         return ser.deleteData(id);
     }
     @PutMapping("put/{id}")
-    public StudentEntity putdata(           )
+    public StudentEntity putdata(           
+
+
+        
+    )
     
 }
