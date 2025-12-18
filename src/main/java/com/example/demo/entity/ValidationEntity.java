@@ -17,6 +17,7 @@ public ValidationEntity{
     private String name;
     @Email(message="Email is not valid")
     private String email;
+    @Max(6,)
     private String password;
     private Number age;
 
