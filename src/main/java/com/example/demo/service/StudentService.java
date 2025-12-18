@@ -16,4 +16,3 @@ StudentEntity updateData(int id,StudentEntity entity);
 
 
 
-}
