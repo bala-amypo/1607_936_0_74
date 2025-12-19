@@ -1,24 +1,29 @@
 package com.example.demo.service.impl;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.entity.ValidationEntity;
+import com.example.demo.repository.ValidationRepository;
 import com.example.demo.service.ValidationService;
 import org.springframework.stereotype.Service;
-import com.example.demo.repository.ValidationRepository;
-import com.example.demo.entity.ValidationEntity;
+
+import java.util.Optional;
 
 @Service
-public class ValidationServiceImpl implements ValidationService{
+public class ValidationServiceImpl implements ValidationService {
 
-@Autowired ValidationRepository value;
+    private final ValidationRepository validationRepository;
 
-@Override
-    public ValidationEntity postdata(ValidationEntity val){
-        
-        return value.save(val);
-
+    public ValidationServiceImpl(ValidationRepository validationRepository) {
+        this.validationRepository = validationRepository;
     }
-    @Override
-public ValidationEntity getData(int id){
-     return value.findById(id);
-}
 
+    @Override
+    public ValidationEntity postdata(ValidationEntity val) {
+        return validationRepository.save(val);
+    }
+
+    @Override
+    public ValidationEntity getData(int id) {
+        return validationRepository.findById(id)
+                .orElse(null); // or throw exception if preferred
+    }
 }
