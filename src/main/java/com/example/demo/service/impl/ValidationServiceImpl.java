@@ -1,33 +1,31 @@
-package com.example.demo.service.impl;
 
-import com.example.demo.entity.ValidationEntity;
-import com.example.demo.repository.ValidationRepository;
+
+
+package com.example.demo.service.impl;
+import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.service.ValidationService;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
+import com.example.demo.repository.ValidationRepository;
+import com.example.demo.entity.ValidationEntity;
+import com.example.demo.exception.ValidationException;
 
 @Service
-public class ValidationServiceImpl implements ValidationService {
+public class ValidationServiceImpl implements ValidationService{
 
-    private final ValidationRepository validationRepository;
+@Autowired ValidationRepository value;
 
-    public ValidationServiceImpl(ValidationRepository validationRepository) {
-        this.validationRepository = validationRepository;
-    }
+@Override
+    public ValidationEntity postdata(ValidationEntity val){
+        
+        return value.save(val);
 
-    @Override
-    public ValidationEntity postdata(ValidationEntity val) {
-        return validationRepository.save(val);
-    }
-
-    @Override
-    public ValidationEntity getData(int id) {
-        return validationRepository.findById(id)
-                .orElse(null); 
     }
     @Override
-    public ValidationEntity getdata(Long id){
-        return value.findById(id).orElseThrow()->new ValidationException("Invalid Id" +id)                                                                       
+public ValidationEntity getdata(Long id){
+   return value.findById(id).orElseThrow(()->new ValidationException("Invalid id"+id));
+}
 
-    }
+}
+
+
+
