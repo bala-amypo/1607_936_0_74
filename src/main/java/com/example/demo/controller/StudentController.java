@@ -1,41 +1,46 @@
 package com.example.demo.controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
-import java.util.List;
+
 import com.example.demo.entity.StudentEntity;
 import com.example.demo.service.StudentService;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
-public class StudentController{
+@RequestMapping("/students")
+public class StudentController {
 
-@Autowired StudentService ser;
-@PostMapping("/post")
-    public StudentEntity sendData(@RequestBody StudentEntity stu){
-            return ser.postdata(stu);
-}
-@GetMapping("/get")
-public List<StudentEntity> getdata(){
-    return ser.getAllData();
-}
+    private final StudentService studentService;
 
-@DeleteMapping("/delete/{id}")
- public String DeleteData(@PathVariable int id){
-   return ser.deleteData(id);
- }
- @GetMapping("put/{id}")
-  public StudentEntity getdata(@PathVariable int id){
-    return ser.getData(id);
-  }
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
-@PutMapping("/put/{id}")
-public StudentEntity putvalue(@PathVariable int id,@RequestBody StudentEntity entity){
+    @PostMapping
+    public StudentEntity createStudent(@RequestBody StudentEntity student) {
+        return studentService.postdata(student);
+    }
 
-    return ser.updateData(id,entity);
-}
+    @GetMapping
+    public List<StudentEntity> getAllStudents() {
+        return studentService.getAllData();
+    }
 
+    @GetMapping("/{id}")
+    public StudentEntity getStudentById(@PathVariable int id) {
+        return studentService.getData(id);
+    }
+
+    @PutMapping("/{id}")
+    public StudentEntity updateStudent(
+            @PathVariable int id,
+            @RequestBody StudentEntity student) {
+
+        return studentService.updateData(id, student);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteStudent(@PathVariable int id) {
+        return studentService.deleteData(id);
+    }
 }
