@@ -24,10 +24,10 @@ public class ValidationServiceImpl implements ValidationService {
     @Override
     public ValidationEntity getData(int id) {
         return validationRepository.findById(id)
-                .orElse(null); // or throw exception if preferred
+                .orElse(null); 
     }
     @Override
     public ValidationEntity getdata(Long id){
         return value.findById(id).orElseThrow()->new ValidationException("Invalid Id" +id)                                                                       
-        
+
     }
